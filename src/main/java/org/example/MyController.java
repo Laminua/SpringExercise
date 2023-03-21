@@ -33,12 +33,10 @@ public class MyController {
     }
 
     @RequestMapping("/addUser")
-    public RedirectView addUsersToMap(@ModelAttribute("userProfile") UserProfile profile,
-                                      Model model, RedirectAttributes attributes) {
+    public RedirectView addUsersToMap(@ModelAttribute("userProfile") UserProfile profile) {
         if (profile.getName() != null) {
             users.put(profile.getName(), profile.getEmail());
         }
         return new RedirectView("/");
     }
-
 }
