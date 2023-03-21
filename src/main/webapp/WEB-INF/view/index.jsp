@@ -5,11 +5,9 @@
 
 <h2> Users: </h2>
 
-${usersMap.users}
+${usersMap}
 
-<form action="addUser" target="_blank">
-<button>Add user</button>
-</form>
+<a href="addUserForm">Add user</a>
 </body>
 
 </html>

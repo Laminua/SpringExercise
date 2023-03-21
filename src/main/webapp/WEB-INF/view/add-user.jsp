@@ -9,7 +9,7 @@
 <br>
 <br>
 
-<form:form action ="/" modelAttribute="userProfile">
+<form:form action ="/addUser" modelAttribute="userProfile">
 
     Name <form:input path="name"/>
     <br><br>
