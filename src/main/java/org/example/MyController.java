@@ -38,10 +38,6 @@ public class MyController {
         if (profile.getName() != null) {
             users.put(profile.getName(), profile.getEmail());
         }
-        model.addAttribute("usersMap", users);
-
-        attributes.addFlashAttribute("flashAttribute", "addUser");
-        attributes.addAttribute("attribute", "addUser");
         return new RedirectView("/");
     }
 
