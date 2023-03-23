@@ -1,21 +1,32 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
 <body>
 
-<table border="1" width="90%">
+<table border="1" width="20%" align="center">
     <caption><h2>List of users</h2></caption>
-    <tr><th>Name</th><th>Email</th>
-<c:forEach var="user" items="${usersMap.entrySet()}">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
 
-    <tr><td>${user.key}</td><td>${user.value}</td>
+        <c:forEach var="user" items="${usersMap.entrySet()}">
 
-</c:forEach>
+    <tr>
+        <td>${user.key}</td>
+        <td>${user.value}</td>
+        <td>
+            <a href="/deleteUser?userNameToDelete=${user.key}">delete</a>
+            <a href="/updateUser?userNameToUpdate=${user.key}">update</a>
+        </td>
+
+        </c:forEach>
+
     </tr>
 </table>
 
-<a href="addUserForm">Add user</a>
+<a href="/addUserForm"><p style="text-align: center">Add user</p></a>
 </body>
 
 </html>

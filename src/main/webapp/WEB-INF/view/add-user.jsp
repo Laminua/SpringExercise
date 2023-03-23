@@ -16,7 +16,7 @@
     Email <form:input path="email"/>
     <br><br>
 
-    <input type="submit" value="Add">
+    <input type="submit" value="OK">
 
 </form:form>
 <form action="/" target="_blank">
