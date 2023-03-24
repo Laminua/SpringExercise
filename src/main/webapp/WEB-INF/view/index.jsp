@@ -18,7 +18,7 @@
         <td>${user.value.email}</td>
         <td>
             <a href="/deleteUser?userIdToDelete=${user.key}">delete</a>
-            <a href="/updateUser?userIdToUpdate=${user.key}">update</a>
+            <a href="/updateUserForm?userIdToUpdate=${user.key}">update</a>
         </td>
 
         </c:forEach>
