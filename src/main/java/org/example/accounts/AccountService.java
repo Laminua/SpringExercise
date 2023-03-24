@@ -10,5 +10,5 @@ import java.util.Map;
 @Service
 @Getter@Setter
 public class AccountService {
-    private Map<String, String> users = new HashMap<>();
+    private Map<Integer, UserProfile> users = new HashMap<>();
 }

@@ -11,6 +11,8 @@
 
 <form:form action ="/addUser" modelAttribute="userProfile">
 
+    <form:hidden path="id"/>
+    <br><br>
     Name <form:input path="name"/>
     <br><br>
     Email <form:input path="email"/>

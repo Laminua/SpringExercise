@@ -14,11 +14,11 @@
         <c:forEach var="user" items="${usersMap.entrySet()}">
 
     <tr>
-        <td>${user.key}</td>
-        <td>${user.value}</td>
+        <td>${user.value.name}</td>
+        <td>${user.value.email}</td>
         <td>
-            <a href="/deleteUser?userNameToDelete=${user.key}">delete</a>
-            <a href="/updateUser?userNameToUpdate=${user.key}">update</a>
+            <a href="/deleteUser?userIdToDelete=${user.key}">delete</a>
+            <a href="/updateUser?userIdToUpdate=${user.key}">update</a>
         </td>
 
         </c:forEach>

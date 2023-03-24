@@ -34,37 +34,34 @@ public class UserController {
         return "add-user";
     }
 
-    String userNameToUpdateTemp;
-
     @RequestMapping("/addUser")
     public RedirectView addUsersToMap(@ModelAttribute("userProfile") UserProfile profile) {
 
-        if (!profile.getName().equals("")) {
-            accountService.getUsers().put(profile.getName(), profile.getEmail());
+        if (profile.getName().equals("")) {
+            return new RedirectView("/");
         }
-        if (!profile.getName().equals(userNameToUpdateTemp)) {
-            accountService.getUsers().remove(userNameToUpdateTemp);
-            accountService.getUsers().put(profile.getName(), profile.getEmail());
+        if (profile.getId() == 0) {
+            profile.setId(profile.hashCode());
+            getAccountService().getUsers().put(profile.getId(), profile);
+        } else {
+            getAccountService().getUsers().replace(profile.getId(), profile);
         }
         return new RedirectView("/");
     }
 
     @RequestMapping("/deleteUser")
-    public RedirectView deleteUserFromMap(@RequestParam("userNameToDelete") String name) {
+    public RedirectView deleteUserFromMap(@RequestParam("userIdToDelete") int id) {
 
-        getAccountService().getUsers().remove(name);
+        getAccountService().getUsers().remove(id);
 
         return new RedirectView("/");
     }
 
     @RequestMapping("/updateUser")
-    public String updateUser(@RequestParam("userNameToUpdate") String name, Model model) {
+    public String updateUser(@RequestParam("userIdToUpdate") int id, Model model) {
 
-        UserProfile userProfile = new UserProfile();
-        userProfile.setName(name);
-        userProfile.setEmail(getAccountService().getUsers().get(name));
+        UserProfile userProfile = getAccountService().getUsers().get(id);
         model.addAttribute("userProfile", userProfile);
-        userNameToUpdateTemp = name;
 
         return "add-user";
     }
